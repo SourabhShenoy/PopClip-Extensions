@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>Image File</key>
+			<string>snapdeal.png</string>
+			<key>Regular Expression</key>
+			<string>(?s)^.{1,}$</string>
+			<key>Title</key>
+			<string>Snapdeal</string>
+			<key>URL</key>
+			<string>http://www.snapdeal.com/search?keyword={popclip text}</string>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Search for products on Snapdeal.</string>
+	<key>Extension Identifier</key>
+	<string>com.sourabh.Snapdeal</string>
+	<key>Extension Name</key>
+	<string>Snapdeal</string>
+	<key>Required Software Version</key>
+	<integer>693</integer>
+</dict>
+</plist>
