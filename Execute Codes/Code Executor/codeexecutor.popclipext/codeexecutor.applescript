@@ -173,9 +173,103 @@ else if newfc is equal to "Go" then
 		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "go run temp.go" in theTab
+		
 	end tell
 	
+else if newfc is equal to "Scala" then
+	set fName to the text returned of (display dialog "Please Enter the Public Class name" default answer "" with title "Enter Class Name")
+	set newfName to trim(true, fName)
 	
+	
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		set theScript to "mv temp.txt " & newfName & ".scala"
+		do script (theScript) in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		set theScript to "scalac " & newfName & ".scala"
+		do script (theScript) in theTab
+		set theScript to "scala " & newfName
+		do script (theScript) in theTab
+	end tell
+	
+else if newfc is equal to "Javascript" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.js" in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		do script "node temp.js" in theTab
+	end tell
+	
+else if newfc is equal to "Haskell" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.hs" in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		do script "ghc temp.hs" in theTab
+		do script "./temp" in theTab
+		
+	end tell
+	
+else if newfc is equal to "C#" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.cs" in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		do script "mcs temp.cs" in theTab
+		do script "mono temp.exe" in theTab
+		
+	end tell
+	
+else if newfc is equal to "Pascal" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.pas" in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		do script "fpc temp.pas" in theTab
+		do script "./temp" in theTab
+		
+	end tell
+	
+else if newfc is equal to "Clojure" then
+	display dialog newfc & " support will be added soon. Stay tuned!"
+	--do script "clojure temp.clj" in theTab
+	
+else if newfc is equal to "Visual Basic" then
+	display dialog newfc & " support will be added soon. Stay tuned!"
+	
+	
+else if newfc is equal to "Matlab" then
+	display dialog newfc & " support will be added soon. Stay tuned!"
 else
 	
 	display dialog "Language " & newfc & " not supported"
