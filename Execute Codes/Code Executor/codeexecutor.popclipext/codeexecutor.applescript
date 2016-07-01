@@ -67,7 +67,79 @@ if newfc is equal to "C" then
 		do script "./a.out" in theTab
 	end tell
 	
+else if newfc is equal to "C++" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.cpp" in theTab
+		do script "rm lang.txt lang.txt" in theTab
+		do script "clear" in theTab
+		do script "g++ temp.cpp" in theTab
+		do script "./a.out" in theTab
+	end tell
+	
+else if newfc is equal to "Perl" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.pl" in theTab
+		do script "rm lang.txt lang.txt" in theTab
+		do script "clear" in theTab
+		do script "perl temp.pl" in theTab
+	end tell
+	
+else if newfc is equal to "Ruby" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.rb" in theTab
+		do script "rm lang.txt lang.txt" in theTab
+		do script "clear" in theTab
+		do script "ruby temp.rb" in theTab
+	end tell
+	
+else if newfc is equal to "Python" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.py" in theTab
+		do script "rm lang.txt lang.txt" in theTab
+		do script "clear" in theTab
+		do script "python temp.py" in theTab
+	end tell
+
+else if newfc is equal to "PHP" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.php" in theTab
+		do script "rm lang.txt lang.txt" in theTab
+		do script "clear" in theTab
+		do script "php temp.php" in theTab
+	end tell
+	
 else
+	
 	display dialog "Language " & newfc & " not supported"
 	
 end if
