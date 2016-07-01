@@ -61,7 +61,7 @@ if newfc is equal to "C" then
 		set theTab to selected tab in first window
 		do script "cd $HOME/Desktop" in theTab
 		do script "mv temp.txt temp.c " in theTab
-		do script "rm lang.txt lang.txt" in theTab
+		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "gcc temp.c" in theTab
 		do script "./a.out" in theTab
@@ -76,7 +76,7 @@ else if newfc is equal to "C++" then
 		set theTab to selected tab in first window
 		do script "cd $HOME/Desktop" in theTab
 		do script "mv temp.txt temp.cpp" in theTab
-		do script "rm lang.txt lang.txt" in theTab
+		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "g++ temp.cpp" in theTab
 		do script "./a.out" in theTab
@@ -91,7 +91,7 @@ else if newfc is equal to "Perl" then
 		set theTab to selected tab in first window
 		do script "cd $HOME/Desktop" in theTab
 		do script "mv temp.txt temp.pl" in theTab
-		do script "rm lang.txt lang.txt" in theTab
+		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "perl temp.pl" in theTab
 	end tell
@@ -105,7 +105,7 @@ else if newfc is equal to "Ruby" then
 		set theTab to selected tab in first window
 		do script "cd $HOME/Desktop" in theTab
 		do script "mv temp.txt temp.rb" in theTab
-		do script "rm lang.txt lang.txt" in theTab
+		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "ruby temp.rb" in theTab
 	end tell
@@ -123,7 +123,7 @@ else if newfc is equal to "Python" then
 		do script "clear" in theTab
 		do script "python temp.py" in theTab
 	end tell
-
+	
 else if newfc is equal to "PHP" then
 	tell application "Terminal"
 		activate
@@ -133,10 +133,48 @@ else if newfc is equal to "PHP" then
 		set theTab to selected tab in first window
 		do script "cd $HOME/Desktop" in theTab
 		do script "mv temp.txt temp.php" in theTab
-		do script "rm lang.txt lang.txt" in theTab
+		do script "rm lang.txt" in theTab
 		do script "clear" in theTab
 		do script "php temp.php" in theTab
 	end tell
+	
+else if newfc is equal to "Java" then
+	
+	set fName to the text returned of (display dialog "Please Enter the Public Class name" default answer "" with title "Enter Class Name")
+	set newfName to trim(true, fName)
+	
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		set theScript to "mv temp.txt " & newfName & ".java"
+		do script (theScript) in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		set theScript to "javac " & newfName & ".java"
+		do script (theScript) in theTab
+		set theScript to "java " & newfName
+		do script (theScript) in theTab
+		
+	end tell
+	
+else if newfc is equal to "Go" then
+	tell application "Terminal"
+		activate
+		if (count of windows) is less than 1 then
+			do script ""
+		end if
+		set theTab to selected tab in first window
+		do script "cd $HOME/Desktop" in theTab
+		do script "mv temp.txt temp.go" in theTab
+		do script "rm lang.txt" in theTab
+		do script "clear" in theTab
+		do script "go run temp.go" in theTab
+	end tell
+	
 	
 else
 	
