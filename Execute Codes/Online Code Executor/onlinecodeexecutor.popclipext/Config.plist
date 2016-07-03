@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Actions</key>
+	<array>
+		<dict>
+			<key>AppleScript File</key>
+			<string>onlinecodeexecutor.applescript</string>
+			<key>Image File</key>
+			<string>onlinecodeexecutor.png</string>
+			<key>Long Running</key>
+			<true/>
+			<key>Title</key>
+			<string>Online Code Executor</string>
+		</dict>
+	</array>
+	<key>Apps</key>
+	<array>
+		<dict>
+			<key>Bundle Identifier</key>
+			<string>com.apple.TextEdit</string>
+			<key>Check Installed</key>
+			<true/>
+			<key>Link</key>
+			<string></string>
+			<key>Name</key>
+			<string>TextEdit</string>
+		</dict>
+	</array>
+	<key>Extension Description</key>
+	<string>Detects the programming language used and tries to paste it in the appropriate online compilation website</string>
+	<key>Extension Identifier</key>
+	<string>com.sourabh.OnlineCodeExecutor</string>
+	<key>Extension Name</key>
+	<string>Online Code Executor</string>
+	<key>Required Software Version</key>
+	<integer>701</integer>
+</dict>
+</plist>
