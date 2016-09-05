@@ -47,15 +47,6 @@ on trim(theseCharacters, someText)
 	return someText
 end trim
 
-on checkForLoading()
-	tell application "Safari" to set safariLoading to loading of currentTab
-	repeat while safariLoading = true
-		delay 1
-		tell application "Safari" to set safariLoading to loading of currentTab
-	end repeat
-end checkForLoading
-
-
 tell application "Terminal"
 	activate
 	if (count of windows) is less than 1 then
@@ -68,7 +59,9 @@ tell application "Terminal"
 	quit
 end tell
 
-set newProg to trim(true, "{popclip text}")
+display notification newfc & " detected" with title "Online Code Executor" sound name "/System/Library/Sounds/Pop.aiff"
+
+
 
 if newfc is equal to "C" then
 	tell application "Safari"
@@ -76,15 +69,19 @@ if newfc is equal to "C" then
 		tell window 1
 			set currentTab to (make new tab with properties {URL:"https://ideone.com"})
 			set current tab to currentTab
-			checkForLoading()
+			delay 8
 			tell application "System Events"
 				keystroke "a" using command down
 				delay 0.2
 				tell application "System Events" to key code 51
-				keystroke "//Trying to run the C Program. Developer: Sourabh S. Shenoy (sourabhsshenoy@icloud.com)"
-				keystroke "{popclip text}"
+				set the clipboard to "//Trying to run the C Program. Developer: Sourabh S. Shenoy (sourabhsshenoy@icloud.com)"
+				keystroke "v" using command down
 				delay 1
-				--		keystroke return using {command down}
+				keystroke return
+				set the clipboard to "{popclip text}"
+				keystroke "v" using command down
+				delay 3
+				keystroke return using {command down}
 			end tell
 		end tell
 	end tell
@@ -103,8 +100,9 @@ else if newfc is equal to "C++" then
 				--	keystroke "//Trying to run the C++ Program. Developer: Sourabh S. Shenoy (sourabhsshenoy@icloud.com)"
 				--	keystroke return
 				delay 1
-				keystroke "{popclip text}"
-				(*				keystroke tab using {option down}
+				keystroke "v" using command down
+				delay 1
+				keystroke tab using {option down}
 				tell application "System Events" to key code 125
 				tell application "System Events" to key code 125
 				tell application "System Events" to key code 125
@@ -113,8 +111,11 @@ else if newfc is equal to "C++" then
 				tell application "System Events" to key code 125
 				tell application "System Events" to key code 125
 				tell application "System Events" to key code 125
-				
-	*)
+				tell application "System Events" to key code 125
+				tell application "System Events" to key code 125
+				delay 1
+				keystroke return
+				keystroke return using {command down}
 			end tell
 		end tell
 	end tell
@@ -122,3 +123,16 @@ else if newfc is equal to "C++" then
 else
 	display dialog newfc & " support will be added soon. Stay tuned!"
 end if
+
+(*
+
+#include <stdio.h>
+ 
+int main()
+{
+  printf("Hello world\n");
+  return 0;
+}
+
+
+*)

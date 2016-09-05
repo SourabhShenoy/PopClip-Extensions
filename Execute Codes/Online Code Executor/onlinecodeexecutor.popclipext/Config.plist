@@ -34,6 +34,29 @@
 	<string>com.sourabh.OnlineCodeExecutor</string>
 	<key>Extension Name</key>
 	<string>Online Code Executor</string>
+	
+	
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Option Identifier</key>
+			<string>Browser</string>
+			<key>Option Label</key>
+			<dict>
+				<key>en</key>
+				<string>Select Browser</string>
+			</dict>
+			<key>Option Type</key>
+			<string>multiple</string>
+			<key>Option Values</key>
+			<array>
+				<string>Safari</string>
+				<string>Google Chrome</string>
+			</array>
+		</dict>
+	</array>
+	
+	
 	<key>Required Software Version</key>
 	<integer>701</integer>
 </dict>

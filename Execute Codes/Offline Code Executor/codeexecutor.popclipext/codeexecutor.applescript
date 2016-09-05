@@ -50,6 +50,7 @@ on trim(theseCharacters, someText)
 	return someText
 end trim
 
+display notification newfc & " detected" with title "Offline Code Executor" sound name "/System/Library/Sounds/Pop.aiff"
 
 
 if newfc is equal to "C" then
