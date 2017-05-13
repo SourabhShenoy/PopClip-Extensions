@@ -1,7 +1,7 @@
 --PopClip Extension developed by Sourabh Shenoy. Contact me at sourabhsshenoy@icloud.com in case of queries, bug reporting, suggestions or collaborations! Happy coding!
 
 
-tell application "TextEdit"
+tell application "TextWrangler"
 	activate
 	set doc1 to make new document with properties {text:"{popclip text}"}
 	save doc1 in file "Macintosh HD:Users:Sourabh:Desktop:temp.txt"
