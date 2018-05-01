@@ -1,0 +1,10 @@
+[ignore]
+.*/out/.*
+.*/node_modules/.*
+[include]
+
+[libs]
+lib/interfaces/
+
+[options]
+suppress_comment= \\(.\\|\n\\)*\\$FlowFixMe

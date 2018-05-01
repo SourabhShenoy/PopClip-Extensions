@@ -1,0 +1,16 @@
+A list of known issues in no particular order:
+
+ - Code that compiles templates is duplicated in two places
+ - We re-compile templates on every request without caching
+   results. Seems wasteful.
+ - Handlebars plugins are registered for the homepage only.
+ - We seriously need to optimize how we use methods that
+   cause DOM reflows.
+
+Planned/ongoing projects:
+
+ - Add support for dashboards where you can display multiple
+   charts.
+ - Replace templates.js with Handlebars
+ - Introduce u-classes
+ - Use system fonts

@@ -1,0 +1,127 @@
+.page-settings{
+  left: 5px;
+	position: fixed;
+  top: 7px;
+  z-index: 3;
+}
+.settings{
+  background-color: white;
+}
+.dark .settings{
+  background-color: black;
+}
+.settings-popover.popover{
+  display: none;
+  left: 4px;
+  padding-bottom: 8px;
+  top: 4px;
+}
+.open .settings{
+  display: none;
+}
+.page-options{
+  padding: 0 0 6px;
+}
+.open .settings-popover{
+  display: block;
+}
+.page-options{
+  padding: 0 0 12px;
+}
+.page-option-item{
+  .m-fontSans400();
+  transition: all 0.2s ease;
+  color: @gray;
+  display: block;
+  font-size: @fontSize-small;
+  padding: 5px 0;
+  text-decoration: none;
+}
+.page-option-item:hover{
+  color: @gray-dark;
+}
+.page-option-item .icon{
+  transition: all 0.2s ease;
+  display: inline-block;
+  height: 30px;
+  margin: 0 2px -5px 0;
+  opacity: 0.4;
+  padding: 3px 0;
+  vertical-align: bottom;
+  width: 30px;
+}
+.page-option-item:hover .icon{
+  opacity: 0.8;
+}
+.page-data-source{
+  border-top: 1px solid @gray-lightest;
+  margin: 10px 0 0;
+  padding: 16px 0 0;
+}
+.page-data-source label{
+  color: @gray;
+  font-size: @fontSize-smallest;
+  display: block;
+  padding: 0 0 3px 5px;
+}
+.page-data-source-form{
+  width: 100%;
+  padding: 0 40px 0 0;
+  position: relative;
+}
+.page-data-source-form input{
+  .m-fontSans400();
+  transition: all 0.2s ease;
+  border-radius: 3px 0 0 3px;
+  border: 1px solid @gray-lighter;
+  color: @gray-dark;
+  display: block;
+  font-size: @fontSize-small;
+  height: 36px;
+  padding: 5px 0 5px 5px;
+  width: 100%;
+}
+.page-data-source-form button{
+  .m-fontSans900();
+  border-radius: 0 3px 3px 0;
+  background-color: white;
+  border: 1px solid @gray-lighter;
+  border-width: 1px 1px 1px 0;
+  font-size: @fontSize-smaller;
+  height: 36px;
+  letter-spacing: @letterSpacing-wide;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
+  top: 0;
+  width: 40px;
+}
+.page-data-source-form button:hover{
+  border: 1px solid @gray-darkest;
+  background-color: @gray-darkest;
+  color: white;
+}
+.dark .page-option-item:hover{
+  color: @gray-lightest;
+}
+.dark .page-option-item .icon{
+  opacity: 0.6;
+}
+.dark .page-option-item:hover .icon{
+  opacity: 1;
+}
+.dark .page-data-source{
+  border-top: 1px solid @gray-dark;
+}
+
+
+@media screen and (min-width: @width-tablet) {
+  .page-settings{
+    transition: all 1s ease;
+    opacity: 0;
+  }
+  .page-active .page-settings{
+    transition: all 0.2s ease;
+    opacity: 1;
+  }
+}

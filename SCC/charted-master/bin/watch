@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+# If watchman is installed, use it to watch and re-compile files.
+# You can install watchman by running `brew install watchman`.
+# See more: https://facebook.github.io/watchman/
+if hash watchman 2> /dev/null; then
+  watchman watch $PWD
+  watchman -- trigger $PWD/src build -- npm run-script prestart
+fi

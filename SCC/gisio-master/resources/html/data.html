@@ -1,0 +1,87 @@
+{{define "data"}}
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <link href="/static/bootstrap/css/bootstrap.min.css" media="all" rel="stylesheet"/>
+  <link href="/static/nvd3/nv.d3.min.css" media="all" rel="stylesheet"/>
+  <script src="/static/jquery/jquery-2.2.0.min.js"></script>
+  <script src="/static/bootstrap/js/bootstrap.js"></script>
+  <script src="/static/d3/d3.js"></script>
+  <script src="/static/nvd3/nv.d3.min.js"></script>
+  <script src="https://unpkg.com/vue"></script>
+
+  <script>
+    var fileName = window.location.pathname.substring(6).split("/")[0];
+    var baseUrl = "/data/" + fileName + "/";
+  </script>
+  <style type="text/css">
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .bar {
+      fill: steelblue;
+    }
+
+    .x.axis path {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div id="vue-app">
+
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+
+            <tr>
+              <th>Columns</th>
+            </tr>
+            </thead>
+            <tbody id="columnsList"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" id="columns"></div>
+      </div>
+      <div class="row">
+        <a href="info" target="_blank" style="font-size: 8px;">Info</a>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 id="selectedColumn"></h1>
+        </div>
+      </div>
+      <div id="chart" class="row">
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<script src="/static/script/utils.js"></script>
+<script src="/static/script/scatter.js"></script>
+<script src="/static/script/pie.js"></script>
+<script src="/static/script/bar.js"></script>
+<script src="/static/script/app.js"></script>
+</html>
+{{end}}

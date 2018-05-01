@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Charted</title>
+
+    <meta http-equiv='Content-type' content='text/html; charset=utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="/charted.css">
+    <script src="//use.edgefonts.net/source-sans-pro:n2,n4,n9.js"></script>
+
+    {{#if ENV.dev}}
+      <script src="/lib/d3.js"></script>
+    {{else}}
+      <script src="/lib.js"></script>
+      <script src="/charted.js"></script>
+    {{/if}}
+  </head>
+
+  <body class="pre-load" data-click="remove-popovers">
+    <h1 class="page-title">
+      {{#if ENV.dev}}
+        Charted Dev
+      {{else}}
+        Charted
+      {{/if}}
+    </h1>
+    <h2 class="page-subtitle">Beautiful, automatic charts</h2>
+
+    <div class="loading-embed-spinner">
+      <img class="loading-spinner-img" src="/images/spinner-dark.svg">
+    </div>
+
+    <form class="load-data-form js-loadDataForm">
+      <input type="text" class="data-file-input js-dataFileInput" name="dataUrl"
+        value="{{dataUrl}}"
+        placeholder="Paste the link to a .csv file or Google Spreadsheet">
+
+      <button type="submit" class="submit">Go</button>
+      <div class="loading-spinner"><img class="loading-spinner-img" src="/images/spinner.svg"></div>
+      <div class="error-message js-errorMessage"></div>
+    </form>
+
+    <div class="charts js-charts"></div>
+
+    <footer>
+      {{#each links}}
+        <a href="{{this.href}}" target="_blank">{{this.text}}</a>
+      {{/each}}
+    </footer>
+
+    {{#if ENV.dev}}
+      <script src="/lib/require.js" data-main="/scripts/charted"></script>
+    {{else}}
+      <script>
+        requirejs(['scripts/PageController'], function (module) {
+          var pageController = new module.PageController()
+          pageController.activate()
+        })
+      </script>
+    {{/if}}
+  </body>
+</html>

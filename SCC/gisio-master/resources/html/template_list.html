@@ -1,0 +1,10 @@
+{{define "templateList"}}
+<html lang="en">
+
+<body>
+{{ range $k, $v := . }}
+{{ $k }} <br>
+{{ end }}
+</body>
+</html>
+{{end}}
